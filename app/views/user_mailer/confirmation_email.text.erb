@@ -1,0 +1,17 @@
+Thank you for your order, <%= @order.email %>!
+For your convenience, here are the details of your order.
+===============================================
+
+<% @order.line_items.each do |item| %>
+  Product: <%= item.product.name %>
+  Description: <%= item.product.description %>
+  Item Price: $<%= item.item_price %>
+  Quantity: <%= item.quantity %>
+  Total Price: $<%= item.total_price %>
+-----------------------------------------------
+<% end %>
+<% order_total = 0 %>
+<% @order.line_items.each do |item| %>
+  <% order_total += item.total_price %>
+<% end %>
+YOUR ORDER TOTAL: $<%= order_total %>
