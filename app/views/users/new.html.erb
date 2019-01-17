@@ -1,0 +1,11 @@
+<h1>Signup!</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+  <%= render 'shared/error_messages' %>
+  First Name: <%= f.text_field :first_name, class: 'form-control' %>
+  Last Name: <%= f.text_field :last_name, class: 'form-control' %>
+  Email: <%= f.text_field :email, class: 'form-control' %>
+  Password: <%= f.password_field :password, class: 'form-control' %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+
+<% end %>
