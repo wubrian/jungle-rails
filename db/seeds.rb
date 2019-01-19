@@ -132,5 +132,51 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## Reviews
+
+puts "Creating Reviews ..."
+
+pro1 = Product.find_or_create_by! name: 'Men\'s Classy shirt'
+pro1.reviews.create!({
+  user_id:  1,
+  description: Faker::Hipster.paragraph(4),
+  rating: rand(1..5)
+})
+
+pro2 = Product.find_or_create_by! name: 'Women\'s Zebra pants'
+pro2.reviews.create!({
+  user_id:  1,
+  description: Faker::Hipster.paragraph(4),
+  rating: rand(1..5)
+})
+
+pro3 = Product.find_or_create_by! name: 'Hipster Hat'
+pro3.reviews.create!({
+  user_id:  1,
+  description: Faker::Hipster.paragraph(4),
+  rating: rand(1..5)
+})
+
+pro4 = Product.find_or_create_by! name: 'Hipster Socks'
+pro4.reviews.create!({
+  user_id:  1,
+  description: Faker::Hipster.paragraph(4),
+  rating: rand(1..5)
+})
+
+pro5 = Product.find_or_create_by! name: 'Russian Spy Shoes'
+pro5.reviews.create!({
+  user_id:  1,
+  description: Faker::Hipster.paragraph(4),
+  rating: rand(1..5)
+})
+
+pro6 = Product.find_or_create_by! name: 'Human Feet Shoes'
+pro6.reviews.create!({
+  user_id:  1,
+  description: Faker::Hipster.paragraph(4),
+  rating: rand(1..5)
+})
+
 
 puts "DONE!"

@@ -26,6 +26,34 @@
       </div>
     </div>
 
+    <div class='col-sm-8'>
+    <h2>Reviews:</h2>
+    <% if current_user %>
+      <%= form_for [@product,@review] do |f| %>
+      <%= f.select :rating, options_for_select(["1", "2", "3","4","5"]) %>
+      <%= f.text_area :description  %>
+      <%= f.submit %>
+      <%end%>
+    <%end%>
+    </div>
+
+    <div class="col-sm-8">
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <% @reviews.reverse_each do |review| %>
+       <dl class="dl-horizontal">
+        <dt>Rating: </dt>
+          <dd><%= review.rating %>/5</dd>
+          <dt>Description: </dt>
+          <dd><%= review.description %></dd>
+          <% if  current_user == review.user %>
+          <dd><%= link_to 'Delete', review_path(review.id) , method: :delete, data: { confirm: 'Are you sure?' } %></dd>
+          <%end%>
+       </dl>
+    <%end%>
+    </div>
+
   </article>
 
 </section>
